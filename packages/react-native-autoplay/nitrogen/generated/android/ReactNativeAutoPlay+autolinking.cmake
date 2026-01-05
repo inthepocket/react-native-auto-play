@@ -42,6 +42,7 @@ target_sources(
   ../nitrogen/generated/shared/c++/HybridListTemplateSpec.cpp
   ../nitrogen/generated/shared/c++/HybridMapTemplateSpec.cpp
   ../nitrogen/generated/shared/c++/HybridMessageTemplateSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridNowPlayingTemplateSpec.cpp
   ../nitrogen/generated/shared/c++/HybridSearchTemplateSpec.cpp
   # Android-specific Nitrogen C++ sources
   ../nitrogen/generated/android/c++/JHybridAndroidAutoTelemetrySpec.cpp
@@ -56,6 +57,7 @@ target_sources(
   ../nitrogen/generated/android/c++/JNitroManeuver.cpp
   ../nitrogen/generated/android/c++/JVariant_PreferredImageLane_ImageLane.cpp
   ../nitrogen/generated/android/c++/JHybridMessageTemplateSpec.cpp
+  ../nitrogen/generated/android/c++/JHybridNowPlayingTemplateSpec.cpp
   ../nitrogen/generated/android/c++/JHybridSearchTemplateSpec.cpp
 )
 

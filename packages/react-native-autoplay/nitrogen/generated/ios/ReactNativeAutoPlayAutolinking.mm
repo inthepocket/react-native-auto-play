@@ -16,6 +16,7 @@
 #include "HybridGridTemplateSpecSwift.hpp"
 #include "HybridMapTemplateSpecSwift.hpp"
 #include "HybridMessageTemplateSpecSwift.hpp"
+#include "HybridNowPlayingTemplateSpecSwift.hpp"
 #include "HybridSearchTemplateSpecSwift.hpp"
 #include "HybridCarPlayDashboardSpecSwift.hpp"
 #include "HybridClusterSpecSwift.hpp"
@@ -68,6 +69,13 @@
     "MessageTemplate",
     []() -> std::shared_ptr<HybridObject> {
       std::shared_ptr<HybridMessageTemplateSpec> hybridObject = ReactNativeAutoPlay::ReactNativeAutoPlayAutolinking::createMessageTemplate();
+      return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "NowPlayingTemplate",
+    []() -> std::shared_ptr<HybridObject> {
+      std::shared_ptr<HybridNowPlayingTemplateSpec> hybridObject = ReactNativeAutoPlay::ReactNativeAutoPlayAutolinking::createNowPlayingTemplate();
       return hybridObject;
     }
   );

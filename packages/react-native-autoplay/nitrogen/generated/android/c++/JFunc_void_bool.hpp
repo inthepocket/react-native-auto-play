@@ -18,7 +18,7 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay {
   using namespace facebook;
 
   /**
-   * Represents the Java/Kotlin callback `(isPanningInterfaceVisible: Boolean) -> Unit`.
+   * Represents the Java/Kotlin callback `(isSelected: Boolean) -> Unit`.
    * This can be passed around between C++ and Java/Kotlin.
    */
   struct JFunc_void_bool: public jni::JavaClass<JFunc_void_bool> {
@@ -29,9 +29,9 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay {
     /**
      * Invokes the function this `JFunc_void_bool` instance holds through JNI.
      */
-    void invoke(bool isPanningInterfaceVisible) const {
-      static const auto method = javaClassStatic()->getMethod<void(jboolean /* isPanningInterfaceVisible */)>("invoke");
-      method(self(), isPanningInterfaceVisible);
+    void invoke(bool isSelected) const {
+      static const auto method = javaClassStatic()->getMethod<void(jboolean /* isSelected */)>("invoke");
+      method(self(), isSelected);
     }
   };
 
@@ -40,7 +40,7 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay {
    */
   class JFunc_void_bool_cxx final: public jni::HybridClass<JFunc_void_bool_cxx, JFunc_void_bool> {
   public:
-    static jni::local_ref<JFunc_void_bool::javaobject> fromCpp(const std::function<void(bool /* isPanningInterfaceVisible */)>& func) {
+    static jni::local_ref<JFunc_void_bool::javaobject> fromCpp(const std::function<void(bool /* isSelected */)>& func) {
       return JFunc_void_bool_cxx::newObjectCxxArgs(func);
     }
 
@@ -48,13 +48,13 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay {
     /**
      * Invokes the C++ `std::function<...>` this `JFunc_void_bool_cxx` instance holds.
      */
-    void invoke_cxx(jboolean isPanningInterfaceVisible) {
-      _func(static_cast<bool>(isPanningInterfaceVisible));
+    void invoke_cxx(jboolean isSelected) {
+      _func(static_cast<bool>(isSelected));
     }
 
   public:
     [[nodiscard]]
-    inline const std::function<void(bool /* isPanningInterfaceVisible */)>& getFunction() const {
+    inline const std::function<void(bool /* isSelected */)>& getFunction() const {
       return _func;
     }
 
@@ -65,11 +65,11 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay {
     }
 
   private:
-    explicit JFunc_void_bool_cxx(const std::function<void(bool /* isPanningInterfaceVisible */)>& func): _func(func) { }
+    explicit JFunc_void_bool_cxx(const std::function<void(bool /* isSelected */)>& func): _func(func) { }
 
   private:
     friend HybridBase;
-    std::function<void(bool /* isPanningInterfaceVisible */)> _func;
+    std::function<void(bool /* isSelected */)> _func;
   };
 
 } // namespace margelo::nitro::swe::iternio::reactnativeautoplay

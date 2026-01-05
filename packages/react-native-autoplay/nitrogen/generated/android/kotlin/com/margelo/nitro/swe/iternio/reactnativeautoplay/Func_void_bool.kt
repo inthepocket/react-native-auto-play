@@ -14,7 +14,7 @@ import dalvik.annotation.optimization.FastNative
 
 
 /**
- * Represents the JavaScript callback `(isPanningInterfaceVisible: boolean) => void`.
+ * Represents the JavaScript callback `(isSelected: boolean) => void`.
  * This can be either implemented in C++ (in which case it might be a callback coming from JS),
  * or in Kotlin/Java (in which case it is a native callback).
  */
@@ -28,11 +28,11 @@ fun interface Func_void_bool: (Boolean) -> Unit {
    */
   @DoNotStrip
   @Keep
-  override fun invoke(isPanningInterfaceVisible: Boolean): Unit
+  override fun invoke(isSelected: Boolean): Unit
 }
 
 /**
- * Represents the JavaScript callback `(isPanningInterfaceVisible: boolean) => void`.
+ * Represents the JavaScript callback `(isSelected: boolean) => void`.
  * This is implemented in C++, via a `std::function<...>`.
  * The callback might be coming from JS.
  */
@@ -56,15 +56,15 @@ class Func_void_bool_cxx: Func_void_bool {
 
   @DoNotStrip
   @Keep
-  override fun invoke(isPanningInterfaceVisible: Boolean): Unit
-    = invoke_cxx(isPanningInterfaceVisible)
+  override fun invoke(isSelected: Boolean): Unit
+    = invoke_cxx(isSelected)
 
   @FastNative
-  private external fun invoke_cxx(isPanningInterfaceVisible: Boolean): Unit
+  private external fun invoke_cxx(isSelected: Boolean): Unit
 }
 
 /**
- * Represents the JavaScript callback `(isPanningInterfaceVisible: boolean) => void`.
+ * Represents the JavaScript callback `(isSelected: boolean) => void`.
  * This is implemented in Java/Kotlin, via a `(Boolean) -> Unit`.
  * The callback is always coming from native.
  */
@@ -74,7 +74,7 @@ class Func_void_bool_cxx: Func_void_bool {
 class Func_void_bool_java(private val function: (Boolean) -> Unit): Func_void_bool {
   @DoNotStrip
   @Keep
-  override fun invoke(isPanningInterfaceVisible: Boolean): Unit {
-    return this.function(isPanningInterfaceVisible)
+  override fun invoke(isSelected: Boolean): Unit {
+    return this.function(isSelected)
   }
 }

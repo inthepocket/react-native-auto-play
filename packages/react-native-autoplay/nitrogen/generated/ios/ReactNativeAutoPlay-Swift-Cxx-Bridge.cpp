@@ -16,6 +16,7 @@
 #include "HybridListTemplateSpecSwift.hpp"
 #include "HybridMapTemplateSpecSwift.hpp"
 #include "HybridMessageTemplateSpecSwift.hpp"
+#include "HybridNowPlayingTemplateSpecSwift.hpp"
 #include "HybridSearchTemplateSpecSwift.hpp"
 #include "ReactNativeAutoPlay-Swift-Cxx-Umbrella.hpp"
 #include <NitroModules/NitroDefines.hpp>
@@ -283,6 +284,22 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay::bridge::swift {
     }
     #endif
     ReactNativeAutoPlay::HybridMessageTemplateSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
+    return swiftPart.toUnsafe();
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridNowPlayingTemplateSpec>
+  std::shared_ptr<HybridNowPlayingTemplateSpec> create_std__shared_ptr_HybridNowPlayingTemplateSpec_(void* NON_NULL swiftUnsafePointer) noexcept {
+    ReactNativeAutoPlay::HybridNowPlayingTemplateSpec_cxx swiftPart = ReactNativeAutoPlay::HybridNowPlayingTemplateSpec_cxx::fromUnsafe(swiftUnsafePointer);
+    return std::make_shared<margelo::nitro::swe::iternio::reactnativeautoplay::HybridNowPlayingTemplateSpecSwift>(swiftPart);
+  }
+  void* NON_NULL get_std__shared_ptr_HybridNowPlayingTemplateSpec_(std__shared_ptr_HybridNowPlayingTemplateSpec_ cppType) {
+    std::shared_ptr<margelo::nitro::swe::iternio::reactnativeautoplay::HybridNowPlayingTemplateSpecSwift> swiftWrapper = std::dynamic_pointer_cast<margelo::nitro::swe::iternio::reactnativeautoplay::HybridNowPlayingTemplateSpecSwift>(cppType);
+    #ifdef NITRO_DEBUG
+    if (swiftWrapper == nullptr) [[unlikely]] {
+      throw std::runtime_error("Class \"HybridNowPlayingTemplateSpec\" is not implemented in Swift!");
+    }
+    #endif
+    ReactNativeAutoPlay::HybridNowPlayingTemplateSpec_cxx& swiftPart = swiftWrapper->getSwiftPart();
     return swiftPart.toUnsafe();
   }
   

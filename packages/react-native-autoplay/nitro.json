@@ -36,6 +36,10 @@
       "kotlin": "HybridMessageTemplate",
       "swift": "HybridMessageTemplate"
     },
+    "NowPlayingTemplate": {
+      "kotlin": "HybridNowPlayingTemplate",
+      "swift": "HybridNowPlayingTemplate"
+    },
     "SearchTemplate": {
       "kotlin": "HybridSearchTemplate",
       "swift": "HybridSearchTemplate"

@@ -40,6 +40,7 @@
 #include "JFunc_void_AlertDismissalReason.hpp"
 #include "JFunc_void_std__string_std__string.hpp"
 #include "JHybridMessageTemplateSpec.hpp"
+#include "JHybridNowPlayingTemplateSpec.hpp"
 #include "JHybridSearchTemplateSpec.hpp"
 #include <NitroModules/DefaultConstructableObject.hpp>
 
@@ -77,6 +78,7 @@ int initialize(JavaVM* vm) {
     margelo::nitro::swe::iternio::reactnativeautoplay::JFunc_void_AlertDismissalReason_cxx::registerNatives();
     margelo::nitro::swe::iternio::reactnativeautoplay::JFunc_void_std__string_std__string_cxx::registerNatives();
     margelo::nitro::swe::iternio::reactnativeautoplay::JHybridMessageTemplateSpec::registerNatives();
+    margelo::nitro::swe::iternio::reactnativeautoplay::JHybridNowPlayingTemplateSpec::registerNatives();
     margelo::nitro::swe::iternio::reactnativeautoplay::JHybridSearchTemplateSpec::registerNatives();
 
     // Register Nitro Hybrid Objects
@@ -132,6 +134,14 @@ int initialize(JavaVM* vm) {
       "MessageTemplate",
       []() -> std::shared_ptr<HybridObject> {
         static DefaultConstructableObject<JHybridMessageTemplateSpec::javaobject> object("com/margelo/nitro/swe/iternio/reactnativeautoplay/HybridMessageTemplate");
+        auto instance = object.create();
+        return instance->cthis()->shared();
+      }
+    );
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "NowPlayingTemplate",
+      []() -> std::shared_ptr<HybridObject> {
+        static DefaultConstructableObject<JHybridNowPlayingTemplateSpec::javaobject> object("com/margelo/nitro/swe/iternio/reactnativeautoplay/HybridNowPlayingTemplate");
         auto instance = object.create();
         return instance->cthis()->shared();
       }

@@ -36,6 +36,7 @@ export * from './templates/InformationTemplate';
 export * from './templates/ListTemplate';
 export * from './templates/MapTemplate';
 export * from './templates/MessageTemplate';
+export * from './templates/NowPlayingTemplate';
 export * from './templates/SearchTemplate';
 export * from './templates/Template';
 export * from './types/Button';

@@ -44,6 +44,8 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay { class HybridListTe
 namespace margelo::nitro::swe::iternio::reactnativeautoplay { class HybridMapTemplateSpec; }
 // Forward declaration of `HybridMessageTemplateSpec` to properly resolve imports.
 namespace margelo::nitro::swe::iternio::reactnativeautoplay { class HybridMessageTemplateSpec; }
+// Forward declaration of `HybridNowPlayingTemplateSpec` to properly resolve imports.
+namespace margelo::nitro::swe::iternio::reactnativeautoplay { class HybridNowPlayingTemplateSpec; }
 // Forward declaration of `HybridSearchTemplateSpec` to properly resolve imports.
 namespace margelo::nitro::swe::iternio::reactnativeautoplay { class HybridSearchTemplateSpec; }
 // Forward declaration of `ImageLane` to properly resolve imports.
@@ -86,6 +88,10 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay { enum class NitroMa
 namespace margelo::nitro::swe::iternio::reactnativeautoplay { struct NitroMapButton; }
 // Forward declaration of `NitroMessageManeuver` to properly resolve imports.
 namespace margelo::nitro::swe::iternio::reactnativeautoplay { struct NitroMessageManeuver; }
+// Forward declaration of `NitroNowPlayingButtonType` to properly resolve imports.
+namespace margelo::nitro::swe::iternio::reactnativeautoplay { enum class NitroNowPlayingButtonType; }
+// Forward declaration of `NitroNowPlayingButton` to properly resolve imports.
+namespace margelo::nitro::swe::iternio::reactnativeautoplay { struct NitroNowPlayingButton; }
 // Forward declaration of `NitroRoutingManeuver` to properly resolve imports.
 namespace margelo::nitro::swe::iternio::reactnativeautoplay { struct NitroRoutingManeuver; }
 // Forward declaration of `NitroRow` to properly resolve imports.
@@ -142,6 +148,8 @@ namespace ReactNativeAutoPlay { class HybridListTemplateSpec_cxx; }
 namespace ReactNativeAutoPlay { class HybridMapTemplateSpec_cxx; }
 // Forward declaration of `HybridMessageTemplateSpec_cxx` to properly resolve imports.
 namespace ReactNativeAutoPlay { class HybridMessageTemplateSpec_cxx; }
+// Forward declaration of `HybridNowPlayingTemplateSpec_cxx` to properly resolve imports.
+namespace ReactNativeAutoPlay { class HybridNowPlayingTemplateSpec_cxx; }
 // Forward declaration of `HybridSearchTemplateSpec_cxx` to properly resolve imports.
 namespace ReactNativeAutoPlay { class HybridSearchTemplateSpec_cxx; }
 
@@ -164,6 +172,7 @@ namespace ReactNativeAutoPlay { class HybridSearchTemplateSpec_cxx; }
 #include "HybridListTemplateSpec.hpp"
 #include "HybridMapTemplateSpec.hpp"
 #include "HybridMessageTemplateSpec.hpp"
+#include "HybridNowPlayingTemplateSpec.hpp"
 #include "HybridSearchTemplateSpec.hpp"
 #include "ImageLane.hpp"
 #include "KeepType.hpp"
@@ -185,6 +194,8 @@ namespace ReactNativeAutoPlay { class HybridSearchTemplateSpec_cxx; }
 #include "NitroMapButton.hpp"
 #include "NitroMapButtonType.hpp"
 #include "NitroMessageManeuver.hpp"
+#include "NitroNowPlayingButton.hpp"
+#include "NitroNowPlayingButtonType.hpp"
 #include "NitroRoutingManeuver.hpp"
 #include "NitroRow.hpp"
 #include "NitroSection.hpp"
@@ -1545,6 +1556,44 @@ namespace margelo::nitro::swe::iternio::reactnativeautoplay::bridge::swift {
   // pragma MARK: std::weak_ptr<HybridMessageTemplateSpec>
   using std__weak_ptr_HybridMessageTemplateSpec_ = std::weak_ptr<HybridMessageTemplateSpec>;
   inline std__weak_ptr_HybridMessageTemplateSpec_ weakify_std__shared_ptr_HybridMessageTemplateSpec_(const std::shared_ptr<HybridMessageTemplateSpec>& strong) noexcept { return strong; }
+  
+  // pragma MARK: std::vector<NitroNowPlayingButton>
+  /**
+   * Specialized version of `std::vector<NitroNowPlayingButton>`.
+   */
+  using std__vector_NitroNowPlayingButton_ = std::vector<NitroNowPlayingButton>;
+  inline std::vector<NitroNowPlayingButton> create_std__vector_NitroNowPlayingButton_(size_t size) noexcept {
+    std::vector<NitroNowPlayingButton> vector;
+    vector.reserve(size);
+    return vector;
+  }
+  
+  // pragma MARK: std::optional<std::vector<NitroNowPlayingButton>>
+  /**
+   * Specialized version of `std::optional<std::vector<NitroNowPlayingButton>>`.
+   */
+  using std__optional_std__vector_NitroNowPlayingButton__ = std::optional<std::vector<NitroNowPlayingButton>>;
+  inline std::optional<std::vector<NitroNowPlayingButton>> create_std__optional_std__vector_NitroNowPlayingButton__(const std::vector<NitroNowPlayingButton>& value) noexcept {
+    return std::optional<std::vector<NitroNowPlayingButton>>(value);
+  }
+  inline bool has_value_std__optional_std__vector_NitroNowPlayingButton__(const std::optional<std::vector<NitroNowPlayingButton>>& optional) noexcept {
+    return optional.has_value();
+  }
+  inline std::vector<NitroNowPlayingButton> get_std__optional_std__vector_NitroNowPlayingButton__(const std::optional<std::vector<NitroNowPlayingButton>>& optional) noexcept {
+    return *optional;
+  }
+  
+  // pragma MARK: std::shared_ptr<HybridNowPlayingTemplateSpec>
+  /**
+   * Specialized version of `std::shared_ptr<HybridNowPlayingTemplateSpec>`.
+   */
+  using std__shared_ptr_HybridNowPlayingTemplateSpec_ = std::shared_ptr<HybridNowPlayingTemplateSpec>;
+  std::shared_ptr<HybridNowPlayingTemplateSpec> create_std__shared_ptr_HybridNowPlayingTemplateSpec_(void* NON_NULL swiftUnsafePointer) noexcept;
+  void* NON_NULL get_std__shared_ptr_HybridNowPlayingTemplateSpec_(std__shared_ptr_HybridNowPlayingTemplateSpec_ cppType);
+  
+  // pragma MARK: std::weak_ptr<HybridNowPlayingTemplateSpec>
+  using std__weak_ptr_HybridNowPlayingTemplateSpec_ = std::weak_ptr<HybridNowPlayingTemplateSpec>;
+  inline std__weak_ptr_HybridNowPlayingTemplateSpec_ weakify_std__shared_ptr_HybridNowPlayingTemplateSpec_(const std::shared_ptr<HybridNowPlayingTemplateSpec>& strong) noexcept { return strong; }
   
   // pragma MARK: std::shared_ptr<HybridSearchTemplateSpec>
   /**
