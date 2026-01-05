@@ -39,6 +39,18 @@ class HeadUnitSceneDelegate: AutoPlayScene, CPTemplateApplicationSceneDelegate {
 
     func templateApplicationScene(
         _ templateApplicationScene: CPTemplateApplicationScene,
+        didConnect interfaceController: CPInterfaceController
+    ) {
+        self.interfaceController = AutoPlayInterfaceController(
+            interfaceController: interfaceController
+        )
+        
+        connect(props: [:])
+        HybridAutoPlay.emit(event: .didconnect)
+    }
+
+    func templateApplicationScene(
+        _ templateApplicationScene: CPTemplateApplicationScene,
         didDisconnectInterfaceController interfaceController:
             CPInterfaceController
     ) {
