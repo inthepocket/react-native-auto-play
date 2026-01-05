@@ -17,11 +17,9 @@ import TrackPlayer, {
   Capability,
 } from 'react-native-track-player';
 import { sampleTracks } from '../data/sampleTracks';
-import { createNowPlayingTemplate } from '../carplay/NowPlayingHandler';
 
 export const MusicPlayerScreen: React.FC = () => {
   const [isPlayerReady, setIsPlayerReady] = useState(false);
-  const [carPlayConnected, setCarPlayConnected] = useState(false);
   const activeTrack = useActiveTrack();
   const playbackState = usePlaybackState();
   const progress = useProgress();
@@ -37,9 +35,6 @@ export const MusicPlayerScreen: React.FC = () => {
       if (state.state !== undefined) {
         // Player already set up
         setIsPlayerReady(true);
-        if (Platform.OS === 'ios') {
-          setupCarPlayIntegration();
-        }
         return;
       }
     } catch (error) {
@@ -77,35 +72,8 @@ export const MusicPlayerScreen: React.FC = () => {
 
       await TrackPlayer.add(sampleTracks);
       setIsPlayerReady(true);
-
-      // Setup CarPlay integration on iOS
-      if (Platform.OS === 'ios') {
-        setupCarPlayIntegration();
-      }
     } catch (error) {
       console.error('Error setting up player:', error);
-    }
-  };
-
-  const setupCarPlayIntegration = async () => {
-    try {
-      const nowPlayingTemplate = createNowPlayingTemplate();
-
-      // Auto-push the NowPlaying template when music is playing
-      try {
-        const state = await TrackPlayer.getPlaybackState();
-        if (state.state === State.Playing || state.state === State.Paused) {
-          await nowPlayingTemplate.push();
-          console.log('NowPlaying template pushed to CarPlay');
-        }
-      } catch (error) {
-        console.log('Could not auto-push NowPlaying template:', error);
-      }
-
-      setCarPlayConnected(true);
-      console.log('CarPlay NowPlaying template created and ready');
-    } catch (error) {
-      console.error('Error setting up CarPlay:', error);
     }
   };
 
@@ -155,11 +123,6 @@ export const MusicPlayerScreen: React.FC = () => {
     <ScrollView style={styles.container} contentContainerStyle={styles.scrollContent}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Music Player</Text>
-        {Platform.OS === 'ios' && carPlayConnected && (
-          <View style={styles.carPlayBadge}>
-            <Text style={styles.carPlayText}>🚗 CarPlay Ready</Text>
-          </View>
-        )}
       </View>
 
       {activeTrack && (
@@ -211,12 +174,8 @@ export const MusicPlayerScreen: React.FC = () => {
           {Platform.OS === 'ios' && (
             <View style={styles.carPlayInfo}>
               <Text style={styles.carPlayInfoText}>
-                📱 Connect to CarPlay to access Now Playing controls with additional features:
+                🚗 CarPlay Now Playing is automatically available when connected to CarPlay
               </Text>
-              <Text style={styles.featureText}>• Shuffle & Repeat buttons</Text>
-              <Text style={styles.featureText}>• Playback rate control</Text>
-              <Text style={styles.featureText}>• Up Next queue view</Text>
-              <Text style={styles.featureText}>• Album/Artist info</Text>
             </View>
           )}
 
@@ -257,18 +216,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 10,
-  },
-  carPlayBadge: {
-    backgroundColor: '#007AFF',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 12,
-    alignSelf: 'flex-start',
-  },
-  carPlayText: {
-    color: '#fff',
-    fontSize: 14,
-    fontWeight: '600',
   },
   loadingText: {
     color: '#fff',
@@ -346,7 +293,7 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#007AFF',
+    backgroundColor: 'transparent',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -362,13 +309,7 @@ const styles = StyleSheet.create({
   carPlayInfoText: {
     color: '#fff',
     fontSize: 14,
-    marginBottom: 12,
-  },
-  featureText: {
-    color: '#999',
-    fontSize: 13,
-    marginLeft: 8,
-    marginBottom: 4,
+    textAlign: 'center',
   },
   noTrackContainer: {
     flex: 1,

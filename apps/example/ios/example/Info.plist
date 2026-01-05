@@ -78,9 +78,9 @@
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>CPSupportsDashboardNavigationScene</key>
-		<true/>
+		<false/>
 		<key>CPSupportsInstrumentClusterNavigationScene</key>
-		<true/>
+		<false/>
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<true/>
 		<key>UISceneConfigurations</key>

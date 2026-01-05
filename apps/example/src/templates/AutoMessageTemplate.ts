@@ -9,15 +9,12 @@ import { AutoTemplate } from './AutoTemplate';
 
 const getTemplate = ({
   message,
-  mapConfig,
 }: {
   message: AutoText;
-  mapConfig?: MessageTemplateConfig['mapConfig'];
 }): MessageTemplate => {
   return new MessageTemplate({
     title: { text: 'header title' },
     message,
-    mapConfig,
     image: { name: 'info', type: 'glyph', color: DefaultTemplateImageColor },
     actions: {
       android: [

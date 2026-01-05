@@ -9,16 +9,13 @@ import { AutoTemplate } from './AutoTemplate';
 const defaultColor =
   Platform.OS === 'android' ? 'white' : { lightColor: 'black', darkColor: 'white' };
 
-const getTemplate = (props?: {
-  mapConfig?: InformationTemplateConfig['mapConfig'];
-}): InformationTemplate => {
+const getTemplate = (): InformationTemplate => {
   return new InformationTemplate({
     title: {
       text: `${TextPlaceholders.Distance} - ${TextPlaceholders.Duration}`,
       distance: { unit: 'meters', value: 1234 },
       duration: 4711,
     },
-    mapConfig: props?.mapConfig,
     headerActions: AutoTemplate.headerActions,
     items: [
       {

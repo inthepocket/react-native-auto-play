@@ -7,7 +7,7 @@ export const sampleTracks: Track[] = [
     title: 'SoundHelix Song 1',
     artist: 'SoundHelix',
     album: 'Demo Album',
-    artwork: 'https://picsum.photos/400/400?random=1',
+    artwork: 'https://picsum.photos/id/1/400/400',
     duration: 346,
   },
   {
@@ -16,7 +16,7 @@ export const sampleTracks: Track[] = [
     title: 'SoundHelix Song 2',
     artist: 'SoundHelix',
     album: 'Demo Album',
-    artwork: 'https://picsum.photos/400/400?random=2',
+    artwork: 'https://picsum.photos/id/10/400/400',
     duration: 327,
   },
   {
@@ -25,7 +25,7 @@ export const sampleTracks: Track[] = [
     title: 'SoundHelix Song 3',
     artist: 'SoundHelix',
     album: 'Demo Album',
-    artwork: 'https://picsum.photos/400/400?random=3',
+    artwork: 'https://picsum.photos/id/20/400/400',
     duration: 356,
   },
   {
@@ -34,7 +34,7 @@ export const sampleTracks: Track[] = [
     title: 'SoundHelix Song 4',
     artist: 'SoundHelix',
     album: 'Demo Album',
-    artwork: 'https://picsum.photos/400/400?random=4',
+    artwork: 'https://picsum.photos/id/30/400/400',
     duration: 318,
   },
   {
@@ -43,7 +43,7 @@ export const sampleTracks: Track[] = [
     title: 'SoundHelix Song 5',
     artist: 'SoundHelix',
     album: 'Demo Album',
-    artwork: 'https://picsum.photos/400/400?random=5',
+    artwork: 'https://picsum.photos/id/40/400/400',
     duration: 299,
   },
 ];

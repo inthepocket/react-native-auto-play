@@ -87,10 +87,9 @@ const getButtons = (
   },
 ];
 
-const getTemplate = (props?: { mapConfig?: GridTemplateConfig['mapConfig'] }): GridTemplate => {
+const getTemplate = (): GridTemplate => {
   return new GridTemplate({
     title: { text: 'grid' },
-    mapConfig: props?.mapConfig,
     headerActions: AutoTemplate.headerActions,
     buttons: getButtons('green', 'red', 0),
     onWillAppear: () => console.log('GridTemplate onWillAppear'),

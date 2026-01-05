@@ -44,15 +44,13 @@ This example app showcases the features of the `react-native-autoplay` library.
 
 This example app demonstrates how to:
 
-*   **Use the `MapTemplate`** as the root template for a navigation app.
-*   **Add map actions and buttons** to the `MapTemplate`.
-*   **Simulate a navigation session** with maneuvers.
 *   **Use various templates**, including:
     *   `GridTemplate`
     *   `ListTemplate`
     *   `SearchTemplate`
     *   `InformationTemplate`
     *   `MessageTemplate`
+    *   `NowPlayingTemplate`
 *   **Display content on the instrument cluster** using `AutoPlayCluster`.
 *   **Display content on the CarPlay dashboard** using `CarPlayDashboard`.
 *   **Access telemetry data** on Android Auto.
