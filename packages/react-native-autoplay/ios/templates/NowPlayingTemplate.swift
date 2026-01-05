@@ -21,6 +21,8 @@ class NowPlayingTemplate: NSObject, AutoPlayTemplate, CPNowPlayingTemplateObserv
 
     init(config: NowPlayingTemplateConfig) {
         self.config = config
+        
+        initTemplate(template: CPNowPlayingTemplate.shared, id: config.id)
         self.template = CPNowPlayingTemplate.shared
         super.init()
 
