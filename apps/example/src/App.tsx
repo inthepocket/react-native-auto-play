@@ -4,7 +4,7 @@ import {
   HybridAutoPlay,
 } from '@iternio/react-native-auto-play';
 import { useEffect, useState } from 'react';
-import { Button, Platform, StatusBar, StyleSheet, Text, useColorScheme, View } from 'react-native';
+import { Button, Platform, StatusBar, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { AutoTrip } from './config/AutoTrip';
 import {
@@ -14,6 +14,7 @@ import {
 } from './state/navigationSlice';
 import { useAppDispatch, useAppSelector } from './state/store';
 import { TelemetryView } from './TelemetryView';
+import { MusicPlayerScreen } from './screens/MusicPlayerScreen';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -34,6 +35,8 @@ function App() {
   );
 }
 
+type Screen = 'navigation' | 'music';
+
 function AppContent() {
   const dispatch = useAppDispatch();
 
@@ -42,6 +45,7 @@ function AppContent() {
 
   const [isConnected, setIsConnected] = useState(HybridAutoPlay.isConnected());
   const [isRootVisible, setIsRootVisible] = useState(false);
+  const [activeScreen, setActiveScreen] = useState<Screen>('music');
 
   useEffect(() => {
     const listeners: Array<CleanupCallback> = [];
@@ -61,8 +65,46 @@ function AppContent() {
     };
   }, []);
 
+  if (activeScreen === 'music') {
+    return (
+      <View style={{ flex: 1, backgroundColor: '#000' }}>
+        <View style={{ flex: 1 }}>
+          <MusicPlayerScreen />
+        </View>
+        <View style={styles.tabBar}>
+          <TouchableOpacity
+            style={[styles.tab, styles.activeTab]}
+            onPress={() => setActiveScreen('music')}
+          >
+            <Text style={styles.activeTabText}>🎵 Music</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.tab}
+            onPress={() => setActiveScreen('navigation')}
+          >
+            <Text style={styles.tabText}>🗺️ Navigation</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.tabBar}>
+        <TouchableOpacity
+          style={styles.tab}
+          onPress={() => setActiveScreen('music')}
+        >
+          <Text style={styles.tabText}>🎵 Music</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.tab, styles.activeTab]}
+          onPress={() => setActiveScreen('navigation')}
+        >
+          <Text style={styles.activeTabText}>🗺️ Navigation</Text>
+        </TouchableOpacity>
+      </View>
       <Text>AutoPlay connected: {String(isConnected)}</Text>
       <Text>Head unit root visible: {String(isRootVisible)}</Text>
       <Text>isNavigating: {String(isNavigating)}</Text>
@@ -126,6 +168,33 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     paddingTop: 8,
     gap: 8,
+  },
+  tabBar: {
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#333',
+    backgroundColor: '#000',
+  },
+  tab: {
+    flex: 1,
+    paddingVertical: 16,
+    alignItems: 'center',
+    backgroundColor: '#1a1a1a',
+  },
+  activeTab: {
+    backgroundColor: '#000',
+    borderBottomWidth: 3,
+    borderBottomColor: '#007AFF',
+  },
+  tabText: {
+    color: '#666',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  activeTabText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
   },
 });
 
